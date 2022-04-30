@@ -501,6 +501,9 @@ CLASS lcl_main IMPLEMENTATION.
 
             LOOP AT me->ret_tadir_4_devclass( ls_comp_data-name ) INTO ls_tadir.
 
+              CHECK ls_tadir-obj_name <> ls_comp_data-name
+                AND ls_tadir-object <> 'DEVC'.
+
               ls_comp_data-parent = ls_nodekey-node.
               ls_comp_data-id     = ls_comp_data-id + 20000.
               ls_comp_data-name   = ls_tadir-obj_name.
